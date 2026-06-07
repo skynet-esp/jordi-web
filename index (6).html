@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jordi Martínez Serra — Scientist / Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#0a0a0a;--paper:#f4f1e8;--acid:#d6ff00;--hot:#ff3d2e;--cobalt:#1f30ff;--violet:#7b2ff7;--line:4px solid var(--ink);}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--paper);color:var(--ink);font-family:"Space Mono",monospace;overflow-x:hidden;
+    background-image:radial-gradient(var(--ink) 1px,transparent 1px);background-size:22px 22px;background-position:-11px -11px;}
+  ::selection{background:var(--acid);color:var(--ink)}
+  nav{position:sticky;top:0;z-index:100;display:flex;justify-content:space-between;align-items:stretch;background:var(--ink);color:var(--paper);border-bottom:var(--line);}
+  nav .brand{font-family:"Archivo Black";font-size:1.05rem;padding:1rem 1.4rem;letter-spacing:-.02em}
+  nav .links{display:flex}
+  nav a{color:var(--paper);text-decoration:none;font-weight:700;font-size:.78rem;padding:1rem 1.1rem;border-left:2px solid #333;text-transform:uppercase;transition:background .15s,color .15s;}
+  nav a:hover{background:var(--acid);color:var(--ink)}
+  header{padding:6rem 6vw 4rem;border-bottom:var(--line);position:relative;display:grid;grid-template-columns:1.3fr .9fr;gap:3rem;align-items:center;}
+  header .htext .tag{display:inline-block;background:var(--hot);color:var(--paper);font-weight:700;font-size:.75rem;padding:.4rem .9rem;text-transform:uppercase;transform:rotate(-2deg);margin-bottom:1.5rem;border:var(--line);}
+  header h1{font-family:"Archivo Black";font-size:clamp(2.4rem,7vw,6rem);line-height:.85;letter-spacing:-.03em;text-transform:uppercase;}
+  header h1 .out{-webkit-text-stroke:3px var(--ink);color:var(--paper);}
+  header .sub{margin-top:1.8rem;max-width:52ch;font-size:1rem;line-height:1.6;border-left:var(--line);padding-left:1.2rem;}
+  .heroimg{position:relative}
+  .heroimg img{width:100%;display:block;border:var(--line);filter:grayscale(.15) contrast(1.05)}
+  .heroimg::after{content:"IN VITRO";position:absolute;bottom:-14px;left:-14px;background:var(--acid);border:var(--line);font-weight:700;font-size:.7rem;padding:.4rem .7rem;letter-spacing:.1em}
+  .heroimg::before{content:"";position:absolute;top:14px;left:14px;right:-14px;bottom:14px;background:var(--cobalt);z-index:-1}
+  section{padding:5rem 6vw;border-bottom:var(--line)}
+  .label{font-family:"Archivo Black";font-size:.85rem;letter-spacing:.2em;text-transform:uppercase;margin-bottom:2rem;display:flex;align-items:center;gap:1rem;}
+  .label::before{content:"";width:2.5rem;height:2.5rem;background:var(--cobalt);display:inline-block}
+  h2{font-family:"Fraunces";font-weight:900;font-size:clamp(2rem,5vw,3.5rem);line-height:1;margin-bottom:1.5rem}
+  .about-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:2.5rem;align-items:start}
+  .about-grid p{font-size:1.05rem;line-height:1.7;margin-bottom:1rem}
+  .stats{display:grid;gap:1px;background:var(--ink);border:var(--line)}
+  .stat{background:var(--paper);padding:1.4rem}
+  .stat b{font-family:"Archivo Black";font-size:2.4rem;display:block;color:var(--hot)}
+  .stat span{font-size:.75rem;text-transform:uppercase;letter-spacing:.05em}
+  .offlab{margin-top:3rem}
+  .offlab .lab2{font-family:"Space Mono";font-weight:700;font-size:.78rem;text-transform:uppercase;letter-spacing:.15em;margin-bottom:1rem;opacity:.7}
+  .mosaic{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:var(--line)}
+  .mosaic figure{position:relative;border-right:var(--line);overflow:hidden}
+  .mosaic figure:last-child{border-right:none}
+  .mosaic img{width:100%;height:260px;object-fit:cover;display:block;filter:grayscale(.2) contrast(1.05);transition:transform .4s,filter .4s}
+  .mosaic figure:hover img{transform:scale(1.06);filter:none}
+  .mosaic figcaption{position:absolute;bottom:0;left:0;background:var(--ink);color:var(--acid);font-size:.65rem;font-weight:700;padding:.3rem .6rem;text-transform:uppercase;letter-spacing:.1em}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:0;border:var(--line)}
+  .card{background:var(--paper);padding:2rem;border-right:var(--line);border-bottom:var(--line);position:relative;transition:transform .15s,background .15s;}
+  .card:hover{background:var(--acid);transform:translate(-4px,-4px)}
+  .card .n{font-family:"Space Mono";font-size:.75rem;opacity:.5}
+  .card h3{font-family:"Archivo Black";font-size:1.25rem;margin:.4rem 0 .8rem;text-transform:uppercase;line-height:1.05}
+  .card p{font-size:.9rem;line-height:1.5;margin-bottom:1rem}
+  .card .stack{display:flex;flex-wrap:wrap;gap:.4rem}
+  .card .stack span{background:var(--ink);color:var(--paper);font-size:.65rem;padding:.25rem .5rem;text-transform:uppercase;font-weight:700}
+  .pub{border:var(--line);margin-bottom:-4px;padding:1.6rem 2rem;display:grid;grid-template-columns:auto 1fr auto;gap:1.5rem;align-items:center;background:var(--paper);transition:background .15s}
+  .pub:hover{background:var(--violet);color:var(--paper)}
+  .pub .yr{font-family:"Archivo Black";font-size:1.6rem}
+  .pub .ti{font-weight:700;font-size:.98rem;line-height:1.3}
+  .pub .vn{font-size:.78rem;opacity:.7;margin-top:.2rem}
+  .pub .doi{font-size:.7rem;border:2px solid currentColor;padding:.3rem .6rem;text-transform:uppercase;font-weight:700;text-decoration:none;color:inherit;white-space:nowrap}
+  .tool{background:var(--ink);color:var(--paper);border:var(--line);padding:2.5rem}
+  .tool h2{color:var(--acid)}
+  .codeline{font-size:.85rem;line-height:1.8;white-space:pre-wrap;color:var(--acid)}
+  .gc-out{margin-top:1.5rem;font-size:2rem;font-family:"Archivo Black"}
+  .tool input{background:var(--paper);border:var(--line);color:var(--ink);font-family:"Space Mono";padding:.8rem;width:100%;font-size:.9rem;margin:.8rem 0;letter-spacing:.1em}
+  .tool button{background:var(--acid);color:var(--ink);border:var(--line);font-family:"Archivo Black";padding:.8rem 1.6rem;cursor:pointer;text-transform:uppercase;transition:transform .1s}
+  .tool button:active{transform:translate(3px,3px)}
+  footer{padding:5rem 6vw;background:var(--ink);color:var(--paper)}
+  footer h2{font-family:"Archivo Black";font-size:clamp(2.5rem,9vw,7rem);text-transform:uppercase;line-height:.85;color:var(--paper)}
+  footer .links2{display:flex;flex-wrap:wrap;gap:1rem;margin-top:2rem}
+  footer .links2 a{color:var(--ink);background:var(--acid);padding:.8rem 1.4rem;text-decoration:none;font-weight:700;text-transform:uppercase;border:3px solid var(--paper);transition:transform .1s}
+  footer .links2 a:hover{transform:translate(-3px,-3px)}
+  footer .fine{margin-top:3rem;font-size:.7rem;opacity:.5}
+  @media(max-width:860px){header{grid-template-columns:1fr}.heroimg{max-width:380px;margin-top:1rem}}
+  @media(max-width:760px){nav .links{display:none}.about-grid{grid-template-columns:1fr}.pub{grid-template-columns:1fr;gap:.5rem}.mosaic{grid-template-columns:1fr}.mosaic figure{border-right:none;border-bottom:var(--line)}.mosaic figure:last-child{border-bottom:none}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="brand">J. MARTÍNEZ SERRA</div>
+  <div class="links">
+    <a href="#about">Sobre mí</a>
+    <a href="#work">Proyectos</a>
+    <a href="#pubs">Publicaciones</a>
+    <a href="#tool">Demo</a>
+    <a href="#contact">Contacto</a>
+  </div>
+</nav>
+
+<header>
+  <div class="htext">
+    <span class="tag">Biología Molecular × Bioinformática</span>
+    <h1>JORDI<br>MARTÍNEZ<br><span class="out">SERRA</span></h1>
+    <p class="sub">
+      PhD · Jefe del Laboratorio de Biología Molecular de Hematología en el
+      Hospital Universitari Son Espases (Palma). Construyo herramientas y
+      pipelines de secuenciación que convierten datos crudos de NGS y nanoporo en
+      decisiones clínicas en oncohematología.
+    </p>
+  </div>
+  <div class="heroimg">
+    <img src="img/lab-portrait.png" alt="Jordi Martínez Serra en el laboratorio">
+  </div>
+</header>
+
+<section id="about">
+  <div class="label">01 — Quién soy</div>
+  <div class="about-grid">
+    <div>
+      <h2>Entre la pipeta y la terminal.</h2>
+      <p>Más de dos décadas en diagnóstico molecular hematológico: desde PCR a tiempo real, citometría de flujo y genotipado hasta secuenciación de nueva generación y nanoporo (MinION). Dirijo el laboratorio de Biología Molecular de Hematología en Son Espases, centro de referencia en Baleares.</p>
+      <p>Mi lado dev: diseño pipelines a medida para detección de variantes, perfilado clonal de FLT3-ITD, análisis de IGHV en LLC y generación automática de informes clínicos firmables. Donde el caller genérico se queda corto, escribo el mío.</p>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>73</b><span>Publicaciones</span></div>
+      <div class="stat"><b>1.195</b><span>Citas</span></div>
+      <div class="stat"><b>~13k</b><span>Lecturas (ResearchGate)</span></div>
+      <div class="stat"><b>20+</b><span>Años en el laboratorio</span></div>
+    </div>
+  </div>
+  <div class="offlab">
+    <div class="lab2">// Fuera del laboratorio</div>
+    <div class="mosaic">
+      <figure><img src="img/surf.png" alt="Surf al atardecer"><figcaption>Surf</figcaption></figure>
+      <figure><img src="img/skydive.png" alt="Paracaidismo"><figcaption>Cielo</figcaption></figure>
+      <figure><img src="img/mountain.png" alt="Montaña nevada"><figcaption>Frío</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="label">02 — Proyectos</div>
+  <h2>Cosas que he construido.</h2>
+  <div class="grid">
+    <div class="card">
+      <div class="n">PROJECT_01</div>
+      <h3>Pipeline TP53 → Informe clínico</h3>
+      <p>Del output HTML del pipeline (SKYNET / p53minion) a un informe clínico en PDF firmable para el hematólogo. Estado de TP53 que condiciona el tratamiento en LLC y otras hemopatías.</p>
+      <div class="stack"><span>Python</span><span>NGS</span><span>PDF</span></div>
+    </div>
+    <div class="card">
+      <div class="n">PROJECT_02</div>
+      <h3>Perfilado clonal FLT3-ITD (MinION)</h3>
+      <p>Clustering a medida para detección subclonal de duplicaciones en tándem de FLT3 en LMA con secuenciación por nanoporo, superando a callers genéricos como Sniffles.</p>
+      <div class="stack"><span>Nanopore</span><span>Clustering</span><span>AML</span></div>
+    </div>
+    <div class="card">
+      <div class="n">PROJECT_03</div>
+      <h3>Análisis IGHV en LLC</h3>
+      <p>Evaluación de la nueva química MinION y duplex basecalling para el análisis de hipermutación somática del gen IGHV en leucemia linfática crónica.</p>
+      <div class="stack"><span>Duplex</span><span>SHM</span><span>CLL</span></div>
+    </div>
+    <div class="card">
+      <div class="n">PROJECT_04</div>
+      <h3>RT-PCR multiplex AML</h3>
+      <p>Detección simultánea de mutaciones FLT3-ITD / NPM-1 / AML1-ETO asociadas a leucemia mieloide aguda en un único ensayo.</p>
+      <div class="stack"><span>RT-PCR</span><span>Multiplex</span><span>Dx</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="pubs">
+  <div class="label">03 — Publicaciones</div>
+  <h2>Selección reciente.</h2>
+  <div class="pub">
+    <div class="yr">2026</div>
+    <div><div class="ti">Case Report: AML with mixed immunophenotypic features and TCF3::ZNF384 fusion in a pediatric patient with CNS involvement</div><div class="vn">Frontiers · Martínez-Serra J, Alonso-Carballo A, et al.</div></div>
+    <a class="doi" href="https://www.researchgate.net/publication/405391174" target="_blank" rel="noopener">Ver ↗</a>
+  </div>
+  <div class="pub">
+    <div class="yr">2025</div>
+    <div><div class="ti">Multiclonal Profiling of FLT3-ITD in AML Using MinION Sequencing: A Tailored Clustering Approach to Enhance Subclonal Detection</div><div class="vn">OncoTargets and Therapy · Martínez-Serra J, et al.</div></div>
+    <a class="doi" href="https://www.researchgate.net/publication/393853348" target="_blank" rel="noopener">Ver ↗</a>
+  </div>
+  <div class="pub">
+    <div class="yr">2024</div>
+    <div><div class="ti">Evaluation of the New MinION Chemistry and Duplex Basecalling for Immunoglobulin Gene Analysis in Chronic Lymphocytic Leukemia</div><div class="vn">Blood · Martínez-Serra J, Nastasi J, Ferrer-Lores B, et al.</div></div>
+    <a class="doi" href="https://www.researchgate.net/publication/386491918" target="_blank" rel="noopener">Ver ↗</a>
+  </div>
+  <div class="pub">
+    <div class="yr">2014</div>
+    <div><div class="ti">FRET-based real-time PCR without DNA extraction for the genotyping of F5, F2, F12, MTHFR and HFE</div><div class="vn">Journal of Blood Medicine · Martínez-Serra J, Robles J, Nicolás A, et al.</div></div>
+    <a class="doi" href="https://www.researchgate.net/publication/263972673" target="_blank" rel="noopener">Ver ↗</a>
+  </div>
+  <p style="margin-top:1.5rem;font-size:.85rem">→ 73 publicaciones en total. Perfil completo en <a href="https://www.researchgate.net/profile/Jordi-Martinez-Serra" target="_blank" rel="noopener" style="font-weight:700;color:var(--cobalt)">ResearchGate ↗</a></p>
+</section>
+
+<section id="tool">
+  <div class="label">04 — Demo en vivo</div>
+  <div class="tool">
+    <h2>Calculadora de %GC</h2>
+    <p class="codeline">&gt; Pega una secuencia de ADN y calcula su contenido GC.
+&gt; Una pequeña muestra de "ciencia + dev" corriendo en la propia web.</p>
+    <input id="seq" placeholder="ATGCGCTAGCTAGCGGCATTA..." value="ATGCGCGCGCTAGCTAGCGGCATTACGCG">
+    <button onclick="calcGC()">Calcular GC%</button>
+    <div class="gc-out" id="gcout">GC: — %</div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="label" style="color:var(--acid)">05 — Contacto</div>
+  <h2>Hablemos.</h2>
+  <div class="links2">
+    <a href="mailto:[tu@email.com]">Email</a>
+    <a href="https://www.researchgate.net/profile/Jordi-Martinez-Serra" target="_blank" rel="noopener">ResearchGate</a>
+    <a href="#">LinkedIn</a>
+    <a href="#">GitHub</a>
+    <a href="#">ORCID</a>
+  </div>
+  <div class="fine">© 2026 Jordi Martínez Serra · Hospital Universitari Son Espases, Palma · Pendiente: añade tu email, GitHub, LinkedIn y ORCID reales (marcados con # o [corchetes]).</div>
+</footer>
+
+<script>
+  function calcGC(){
+    const s=document.getElementById('seq').value.toUpperCase().replace(/[^ACGT]/g,'');
+    if(!s.length){document.getElementById('gcout').textContent='GC: — % (secuencia vacía)';return;}
+    const gc=(s.match(/[GC]/g)||[]).length;
+    const pct=(gc/s.length*100).toFixed(1);
+    document.getElementById('gcout').textContent='GC: '+pct+' %  ·  '+s.length+' nt';
+  }
+  calcGC();
+  document.querySelectorAll('.card,.pub,.mosaic figure').forEach((el,i)=>{
+    el.style.opacity=0;el.style.transform='translateY(20px)';
+    setTimeout(()=>{el.style.transition='all .5s';el.style.opacity=1;el.style.transform='';},70*i+200);
+  });
+</script>
+</body>
+</html>
